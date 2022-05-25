@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import VideoDetails from './VideoDetails';
+import StyledText from './StyledText';
 
 const Video = (props) => {
     return (
         <View key={props.id} style={styles.container}>
-            <Text style={styles.title}>{props.title}</Text>
+            <StyledText bold big blue>{props.title}</StyledText>
+            <StyledText big>Otro texto</StyledText>
             <View style={{ flexDirection: 'row' }}>
                 <Image source={{ uri: props.thumbnail }} style={styles.image}></Image>
                 <Text style={{ paddingLeft: 10, flex: 1 }}>{props.description}</Text>

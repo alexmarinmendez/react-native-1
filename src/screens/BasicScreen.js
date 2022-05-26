@@ -1,11 +1,10 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from 'react-native';
-import image from './assets/veintiunomarz.png';
+import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, Button } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
 import *  as Sharing from 'expo-sharing';
 import { Platform } from 'react-native';
 
-const App = () => {
+const BasicScreen = (props) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const openImagePickerAsync = async () => {
@@ -41,6 +40,11 @@ const App = () => {
       >
         <Text style={styles.buttonText}>Share Me!</Text>
       </TouchableOpacity>
+      <Button
+                onPress={() => props.navigation.navigate("screen3")}
+                title="screen3"
+                color="#841584"
+            />
     </View>
   );
 };
@@ -53,4 +57,4 @@ const styles = StyleSheet.create({
   buttonText: { color: '#fff' }
 });
 
-export default App;
+export default BasicScreen;

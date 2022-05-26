@@ -1,14 +1,40 @@
-import Videos from './src/components/Videos';
-import Constants from 'expo-constants';
-import { View } from 'react-native';
-import AppBar from './src/components/AppBar';
+import BasicScreen from './src/screens/BasicScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import ProductosScreen from './src/screens/ProductosScreen';
+import OtraScreen from './src/screens/OtraScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+// const Stack = createStackNavigator();
+
+// const MyStack = () => {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen name="productos" component={ProductosScreen} options={{ title: "Lista de Productos" }}/>
+//       <Stack.Screen name="basic" component={BasicScreen} options={{ title: "Nuestra primera Screen" }}/>
+//       <Stack.Screen name="screen3" component={OtraScreen} options={{ title: "Otra Screen" }}/>
+//     </Stack.Navigator>
+//   );
+// }
+
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="productos" component={ProductosScreen} />
+      <Tab.Screen name="basic" component={BasicScreen} />
+      <Tab.Screen name="screen3" component={OtraScreen} />
+    </Tab.Navigator>
+  );
+}
 
 const App = () => {
   return (
-    <View style={{ marginTop: Constants.statusBarHeight, flex: 1 }}>
-      <AppBar />
-      <Videos />
-    </View>
+    <NavigationContainer>
+      {/* <MyStack /> */}
+      <MyTabs />
+    </NavigationContainer>
   );
 };
 
